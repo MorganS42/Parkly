@@ -15,13 +15,15 @@ public class Animal extends Displayable {
     
     private String name;
     private AnimalSpecies species;
+    private Profile profile;
+    private String photo;
 
     private State state;
     private double distance;
     private int direction;
     private double idleTime;
 
-    public Animal(String name, AnimalSpecies species) {
+    public Animal(String name, AnimalSpecies species, String photo) {
         super(new DisplayObject(species.getTexture(), 0, 0, 100, 100));
         this.name = name;
         this.species = species;
@@ -31,6 +33,8 @@ public class Animal extends Displayable {
         hunger = 0;
         state = State.IDLE;
         idleTime = (int)(Math.random() * 600);
+        this.photo = photo;
+        profile = new Profile(photo);
     }
 
     public Animal(String name, String species) {
@@ -75,16 +79,19 @@ public class Animal extends Displayable {
     }
 
     //Shows some info like photos you have taken, hunger, plants it can eat, etc
-    public void profile() {
-        
+    public void showProfile() {
+        profile.show();
+
+        //TODO add statistics, plants, etc as text boxes basically
     }
 
     public void feed(Plant plant) {
         hunger -= plant.getSpecies().getValue();
+        Parkly.INVENTORY.removePlant(plant);
     }
 
     public void die() {
-        
+        Parkly.ZOO.removeAnimal(this);
     }
 
     public AnimalSpecies getSpecies() {

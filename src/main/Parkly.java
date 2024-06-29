@@ -1,3 +1,5 @@
+//Programmed by Tom VB
+
 package main;
 
 import java.util.ArrayList;
@@ -9,6 +11,8 @@ import graphics.Display;
 import graphics.Window;
 
 public class Parkly {
+	public static final Inventory INVENTORY = new Inventory();
+
 	public static final Window WINDOW = new Window();
 	public static final Display DISPLAY = new Display();
 
