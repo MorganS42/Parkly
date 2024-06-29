@@ -37,8 +37,8 @@ public class Animal extends Displayable {
         profile = new Profile(photo);
     }
 
-    public Animal(String name, String species) {
-        this(name, AnimalSpecies.findAnimalSpecies(species));
+    public Animal(String name, String species, String photo) {
+        this(name, AnimalSpecies.findAnimalSpecies(species), photo);
     }
 
     // Make animal move but not like a spastic dingo under the influence of marijuana

@@ -23,7 +23,7 @@ public class Parkly {
 	public static void main(String[] args) {
 		GAME_ENGINE.schedule(new GameEngine(), 0, GameEngine.PERIOD);
 
-		ZOO.addAnimal(new Animal("Bob", "Frog"));
+		ZOO.addAnimal(new Animal("Bob", "Frog", ""));
 	}
 	
 	static class GameEngine extends TimerTask {
