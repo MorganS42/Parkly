@@ -27,19 +27,20 @@ public class Parkly {
     public static final Zoo ZOO = new Zoo();
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        ZOO.addAnimal(new Animal("Bob", "Possum", ""));
+        ZOO.show();
+
         GAME_ENGINE.schedule(new GameEngine(), 0, GameEngine.PERIOD);
 
-        ZOO.addAnimal(new Animal("Bob", "Frog", ""));
+        // String jsonPath = "res/parkly-427911-3c077268a428.json";
 
-        String jsonPath = "res/parkly-427911-3c077268a428.json";
+        // GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream(jsonPath));
+        // ImageAnnotatorSettings settings = ImageAnnotatorSettings.newBuilder().setCredentialsProvider(FixedCredentialsProvider.create(credentials)).build();
 
-        GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream(jsonPath));
-        ImageAnnotatorSettings settings = ImageAnnotatorSettings.newBuilder().setCredentialsProvider(FixedCredentialsProvider.create(credentials)).build();
-
-        try (ImageAnnotatorClient vision = ImageAnnotatorClient.create(settings)) {
-            String imagePath = "path/to/your/image.jpg";
-            detectLabels(vision, imagePath);
-        }
+        // try (ImageAnnotatorClient vision = ImageAnnotatorClient.create(settings)) {
+        //     String imagePath = "res/image.png";
+        //     detectLabels(vision, imagePath);
+        // }
     }
 
     static class GameEngine extends TimerTask {

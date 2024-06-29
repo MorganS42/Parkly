@@ -8,7 +8,7 @@ import com.parkly.graphics.Window;
 public class Enclosure extends Displayable {
     public static final int MAX_ANIMALS = 7;
 
-    public static final String background = "enclosure.png";
+    public static final String background = "background.png";
     List<Animal> animals;
     AnimalSpecies species;
     
@@ -29,5 +29,17 @@ public class Enclosure extends Displayable {
 
     public boolean removeAnimal(Animal animal) {
         return animals.remove(animal);
+    }
+
+    @Override
+    public void show() {
+        super.show();
+        for(Animal animal : animals) animal.show();
+    }
+
+    @Override
+    public void hide() {
+        super.hide();
+        for(Animal animal : animals) animal.hide();
     }
 }

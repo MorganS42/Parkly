@@ -13,19 +13,16 @@
     </properties>
 
     <dependencies>
-        <!-- Google Cloud Vision dependency -->
         <dependency>
             <groupId>com.google.cloud</groupId>
             <artifactId>google-cloud-vision</artifactId>
             <version>3.44.0</version>
         </dependency>
-        <!-- Google Auth dependency -->
         <dependency>
             <groupId>com.google.auth</groupId>
             <artifactId>google-auth-library-oauth2-http</artifactId>
-            <version>1.2.1</version>
+            <version>1.23.0</version>
         </dependency>
-        <!-- Google Cloud Core dependency (optional, for additional utilities) -->
         <dependency>
             <groupId>com.google.cloud</groupId>
             <artifactId>google-cloud-core</artifactId>
@@ -42,6 +39,14 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <mainClass>com.parkly.main.Parkly</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -2,7 +2,7 @@ package com.parkly.main;
 
 public class AnimalSpecies {
     public static final AnimalSpecies[] ANIMAL_SPECIES = {
-		new AnimalSpecies("Frog", "animal.png", new PlantSpecies[]{
+		new AnimalSpecies("Possum", "possum.png", new PlantSpecies[] {
             
 		})
 	};

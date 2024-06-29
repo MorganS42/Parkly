@@ -1,6 +1,7 @@
 package com.parkly.main;
 
 import com.parkly.graphics.DisplayObject;
+import com.parkly.graphics.Window;
 
 public class Animal extends Displayable {
     private enum State {
@@ -9,7 +10,7 @@ public class Animal extends Displayable {
     }
 
     public static final int MAX_HP = 100;
-    public static final double MOVE_INCREMENT = 0.5;
+    public static final double MOVE_INCREMENT = 5;
 
     private double hunger, x, y;
     
@@ -24,15 +25,15 @@ public class Animal extends Displayable {
     private double idleTime;
 
     public Animal(String name, AnimalSpecies species, String photo) {
-        super(new DisplayObject(species.getTexture(), 0, 0, 100, 100));
+        super(new DisplayObject(species.getTexture(), 0, 0, (int) (Window.HEIGHT * 0.1), (int) (Window.HEIGHT * 0.1)));
         this.name = name;
         this.species = species;
 
-        x = (int)(Math.random() * 100);
-        y = (int)(Math.random() * 100);
+        x = (int)(Math.random() * Window.WIDTH);
+        y = Window.HEIGHT - Window.HEIGHT * 0.15;
         hunger = 0;
-        state = State.IDLE;
-        idleTime = (int)(Math.random() * 600);
+        state = State.MOVE;
+        idleTime = (int) (Math.random() * 100);
         this.photo = photo;
         profile = new Profile(this);
     }
@@ -46,23 +47,23 @@ public class Animal extends Displayable {
         // Manages movement
         switch (state) {
             case IDLE:
-                if (idleTime == 0) {
+                if (idleTime <= 0) {
                     state = State.MOVE;
                     direction = (Math.random() > 0.5) ? 1 : -1;
-                    distance = (int)(Math.random() * 100 * direction);
+                    distance = (int)(Math.random() * 100);
                 }
                 else {
                     idleTime -= MOVE_INCREMENT;
                 }
                 break;
             case MOVE:
-                if (distance != 0) {
+                if (distance >= 0) {
                     x += direction * MOVE_INCREMENT;
                     distance -= MOVE_INCREMENT;
                 }
                 else {
                     state = State.IDLE;
-                    idleTime = (int)(Math.random() * 600);
+                    idleTime = (int)(Math.random() * 100);
                 }
                 break;
         }
@@ -110,5 +111,16 @@ public class Animal extends Displayable {
 
     public String getPhoto() {
         return photo;
+    }
+
+    @Override
+    public void show() {
+        super.show();
+        showProfile();
+    }
+
+    @Override
+    public void hide() {
+        super.hide();
     }
 }

@@ -18,7 +18,7 @@ public class Window {
 	public static final double SCALE_Y = gs[MONITOR].getDefaultConfiguration().getDefaultTransform().getScaleY();
 	
 	
-	public static final int HEIGHT = (int) Math.ceil(gs[MONITOR].getDisplayMode().getHeight() / SCALE_Y);
+	public static final int HEIGHT = (int) Math.ceil(gs[MONITOR].getDisplayMode().getHeight() / SCALE_Y * 0.5);
     public static final int WIDTH = (int) (HEIGHT * RATIO);
 	
 	public Window() {
@@ -26,7 +26,7 @@ public class Window {
         
 		frame.setBounds(WIDTH, 0, WIDTH, HEIGHT);
 		
-		frame.setUndecorated(true);
+		//frame.setUndecorated(true);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

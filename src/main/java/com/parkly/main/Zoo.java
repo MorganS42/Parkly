@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Zoo implements Updatable {
     private List<Enclosure> enclosures;
+    public int current = 0;
 
     public Zoo() {
         this.enclosures = new ArrayList<Enclosure>();
@@ -15,7 +16,8 @@ public class Zoo implements Updatable {
 
     @Override
     public void update() {
-        for(Enclosure enclosure : enclosures) enclosure.update();
+        // for(Enclosure enclosure : enclosures) enclosure.update();
+        enclosures.get(current).update();
     }
 
     public void addAnimal(Animal animal) {
@@ -34,5 +36,25 @@ public class Zoo implements Updatable {
         for(Enclosure enclosure : enclosures) {
             if(enclosure.removeAnimal(animal)) break;
         }
+    }
+
+    public void show() {
+        enclosures.get(current).show();
+    }
+
+    public void hide() {
+        enclosures.get(current).hide();
+    }
+
+    public void moveLeft() {
+        enclosures.get(current).hide();
+        if(current < enclosures.size() - 1) current++;
+        enclosures.get(current).show();
+    }
+
+    public void moveRight() {
+        enclosures.get(current).hide();
+        if(current > 0) current--;
+        enclosures.get(current).show();
     }
 }
