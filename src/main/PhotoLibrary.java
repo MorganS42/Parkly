@@ -35,9 +35,9 @@ public class PhotoLibrary extends Displayable {
     public void addPhoto(String image, String name) {
         int listSize = photos.size();
         
-        /*The x coord of the photo is equal to the x_coord of the first photo + (((the number of 
+        /* The x coord of the photo is equal to the x_coord of the first photo + (((the number of 
         photos in the list modulo the photos per page) modulo the number of photos per each row) 
-        multiplied by the difference in x coordinates between each photo)*/
+        multiplied by the difference in x coordinates between each photo) */
         int x = FIRST_PHOTO_X + ((listSize % PHOTOS_PER_PAGE) % PHOTOS_PER_ROW) * (PHOTO_WIDTH + PHOTO_GAP_X);
         /*The y coord of the photo is equal to the y_coord of the first photo + (the floor of ((
         the number of photos in the list modulo the photos per page) divided by the number of photos 
