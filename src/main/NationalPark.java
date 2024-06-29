@@ -10,4 +10,8 @@ public class NationalPark {
         this.animals = animals;
         this.location = location;
     }
+
+    public String getLocation() {
+        return location;
+    }
 }

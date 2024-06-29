@@ -34,7 +34,7 @@ public class Animal extends Displayable {
         state = State.IDLE;
         idleTime = (int)(Math.random() * 600);
         this.photo = photo;
-        profile = new Profile(photo);
+        profile = new Profile(this);
     }
 
     public Animal(String name, String species, String photo) {
@@ -66,6 +66,7 @@ public class Animal extends Displayable {
                 }
                 break;
         }
+        
         //Increase hunger
         hunger += 0.005;
 
@@ -83,6 +84,7 @@ public class Animal extends Displayable {
         profile.show();
 
         //TODO add statistics, plants, etc as text boxes basically
+        
     }
 
     public void feed(Plant plant) {
@@ -96,5 +98,17 @@ public class Animal extends Displayable {
 
     public AnimalSpecies getSpecies() {
         return species;
+    }
+
+    public double getHunger() {
+        return hunger;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoto() {
+        return photo;
     }
 }
