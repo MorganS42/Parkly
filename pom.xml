@@ -1,0 +1,13 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1</version>
+
+  <dependency>
+    <groupId>com.github.sarxos</groupId>
+    <artifactId>webcam-capture</artifactId>
+    <version>0.3.12</version>
+  </dependency>
+</project>

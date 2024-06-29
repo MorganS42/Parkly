@@ -4,16 +4,19 @@ import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.util.function.IntSupplier;
 
+import main.Utils;
+
 public class DisplayObject {
     private DisplayScript script;
-    private IntSupplier getX;
-    private IntSupplier getY;
+    private String image;
+    private int width, height;
 
     public DisplayObject(String image, int x, int y, int width, int height) {
-        this.getX = () -> x;
-        this.getY = () -> y;
+        this.width = width;
+        this.height = height;
+        this.image = image;
         this.script = (Graphics2D g2, Display display) -> {
-            g2.drawImage(Toolkit.getDefaultToolkit().getImage("res/" + image), getX.getAsInt(), getY.getAsInt(), width, height, display);  
+            g2.drawImage(Utils.toImage(image), x, y, width, height, display);  
         };
     }
 
@@ -26,7 +29,8 @@ public class DisplayObject {
     }
 
     public void move(int newX, int newY) {
-        this.getX = () -> newX;
-        this.getY = () -> newY;
+        this.script = (Graphics2D g2, Display display) -> {
+            g2.drawImage(Utils.toImage(image), newX, newY, width, height, display);  
+        };
     }
 }
