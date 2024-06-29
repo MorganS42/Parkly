@@ -1,10 +1,15 @@
 package main;
 
 public class Plant {
-    public static final String TEXTURE = "";
     private PlantSpecies species;
+    private String photo;
 
-    public Plant() {
+    public Plant(PlantSpecies species, String photo) {
+        this.species = species;
+        this.photo = photo;
+    }
 
+    public PlantSpecies getSpecies() {
+        return species;
     }
 }

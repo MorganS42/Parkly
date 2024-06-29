@@ -1,8 +1,8 @@
 package main;
 
-import java.awt.*;
+import graphics.DisplayObject;
 
-public class Animal {
+public class Animal extends Displayable {
     private enum State {
         IDLE,
         MOVE
@@ -15,13 +15,16 @@ public class Animal {
     
     private String name;
     private AnimalSpecies species;
+    private Profile profile;
+    private String photo;
 
     private State state;
     private double distance;
     private int direction;
     private double idleTime;
 
-    public Animal(String name, AnimalSpecies species) {
+    public Animal(String name, AnimalSpecies species, String photo) {
+        super(new DisplayObject(species.getTexture(), 0, 0, 100, 100));
         this.name = name;
         this.species = species;
 
@@ -30,6 +33,12 @@ public class Animal {
         hunger = 0;
         state = State.IDLE;
         idleTime = (int)(Math.random() * 600);
+        this.photo = photo;
+        profile = new Profile(photo);
+    }
+
+    public Animal(String name, String species) {
+        this(name, AnimalSpecies.findAnimalSpecies(species));
     }
 
     // Make animal move but not like a spastic dingo under the influence of marijuana
@@ -59,19 +68,33 @@ public class Animal {
         }
         //Increase hunger
         hunger += 0.005;
-    }
 
-    // Shows photo
-    public void display() {
+        //Move image
+        object.move((int)x, (int)y);
 
+        //Check for death
+        if (MAX_HP - hunger <= 0) {
+            die();
+        }
     }
 
     //Shows some info like photos you have taken, hunger, plants it can eat, etc
-    public void profile() {
-        
+    public void showProfile() {
+        profile.show();
+
+        //TODO add statistics, plants, etc as text boxes basically
     }
 
     public void feed(Plant plant) {
+        hunger -= plant.getSpecies().getValue();
+        Parkly.INVENTORY.removePlant(plant);
+    }
 
+    public void die() {
+        Parkly.ZOO.removeAnimal(this);
+    }
+
+    public AnimalSpecies getSpecies() {
+        return species;
     }
 }

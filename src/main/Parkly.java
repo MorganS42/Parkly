@@ -1,3 +1,5 @@
+//Programmed by Tom VB
+
 package main;
 
 import java.util.ArrayList;
@@ -9,17 +11,19 @@ import graphics.Display;
 import graphics.Window;
 
 public class Parkly {
+	public static final Inventory INVENTORY = new Inventory();
+
 	public static final Window WINDOW = new Window();
 	public static final Display DISPLAY = new Display();
 
 	public static final Timer GAME_ENGINE = new Timer();
 
-	public static final List<Updatable> updatables = new ArrayList<Updatable>();
+	public static final Zoo ZOO = new Zoo();
 
 	public static void main(String[] args) {
-		System.out.println("Hello world!");
-
 		GAME_ENGINE.schedule(new GameEngine(), 0, GameEngine.PERIOD);
+
+		ZOO.addAnimal(new Animal("Bob", "Frog"));
 	}
 	
 	static class GameEngine extends TimerTask {
@@ -28,9 +32,7 @@ public class Parkly {
 		
 		@Override
 	    public void run() {
-			for(Updatable updatable : updatables) {
-				updatable.update();
-			}
+			ZOO.update();
 
 			DISPLAY.repaint();
 		}
