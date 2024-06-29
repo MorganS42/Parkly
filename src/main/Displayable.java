@@ -5,8 +5,8 @@ import graphics.DisplayObject;
 public abstract class Displayable implements Updatable {
     DisplayObject object;
 
-    Displayable(DisplayObject object) {
-        this.object = object;
+    Displayable(DisplayObject displayObject) {
+        this.object = displayObject;
     }
     
     void show() {

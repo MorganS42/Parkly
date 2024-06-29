@@ -28,9 +28,7 @@ public class Display extends JPanel {
 		g2.setColor(Color.BLACK);
 		g2.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
 
-		for(DisplayObject object : objects) {
-			g2.drawImage(object.getImage(), object.getX(), object.getY(), object.getWidth(), object.getHeight(), this);
-		}
+		for(DisplayObject object : objects) object.display(g2, this);
 	}
 
 	public void addObject(DisplayObject object) {

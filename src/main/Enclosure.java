@@ -2,26 +2,32 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Enclosure {
+import graphics.DisplayObject;
+import graphics.Window;
+
+public class Enclosure extends Displayable {
     public static final int MAX_ANIMALS = 7;
 
-    String background;
-    List<Animal> animalsInEnclosure;
+    public static final String background = "enclosure.png";
+    List<Animal> animals;
+    AnimalSpecies species;
     
-    public Enclosure(String background) {
-        this.background = background;
-        this.animalsInEnclosure = new ArrayList<Animal>();
-    }
-
-    void displayBackground() {
-        // Display image of background
+    public Enclosure(AnimalSpecies species) {
+        super(new DisplayObject(background, 0, 0, Window.WIDTH, Window.HEIGHT));
+        this.animals = new ArrayList<Animal>();
+        this.species = species;
     }
 
     void addAnimal(Animal newAnimal) {
-        this.animalsInEnclosure.add(newAnimal);
+        if(animals.size() < MAX_ANIMALS) this.animals.add(newAnimal);
     }
 
-    void spawnAnimals() {
-        // Display image of animal at the x and y coords of the animal
+    @Override
+    public void update() {
+        for(Animal animal : animals) animal.update();
+    }
+
+    public boolean removeAnimal(Animal animal) {
+        return animals.remove(animal);
     }
 }

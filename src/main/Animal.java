@@ -33,6 +33,10 @@ public class Animal extends Displayable {
         idleTime = (int)(Math.random() * 600);
     }
 
+    public Animal(String name, String species) {
+        this(name, AnimalSpecies.findAnimalSpecies(species));
+    }
+
     // Make animal move but not like a spastic dingo under the influence of marijuana
     public void update() {
         // Manages movement
@@ -81,5 +85,9 @@ public class Animal extends Displayable {
 
     public void die() {
         
+    }
+
+    public AnimalSpecies getSpecies() {
+        return species;
     }
 }
