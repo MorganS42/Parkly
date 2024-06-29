@@ -2,7 +2,7 @@ package main;
 
 public class Enclosure {
     
-    public Enclosure(String background) {
-        
+    public Enclosure(String background, int numberAnimals) {
+
     }
 }
