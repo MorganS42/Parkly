@@ -3,24 +3,62 @@ package main;
 import java.awt.*;
 
 public class Animal {
-    public static final String TEXTURE = "";
-    public static final int MAX_HP = 100;
+    private enum State {
+        IDLE,
+        MOVE
+    }
 
-    private int hunger, x, y;
+    public static final int MAX_HP = 100;
+    public static final double MOVE_INCREMENT = 0.5;
+
+    private double hunger, x, y;
+    
     private String name;
     private AnimalSpecies species;
+
+    private State state;
+    private double distance;
+    private int direction;
+    private double idleTime;
 
     public Animal(String name, AnimalSpecies species) {
         this.name = name;
         this.species = species;
+
         x = (int)(Math.random() * 100);
         y = (int)(Math.random() * 100);
-        this.hunger = 0;
+        hunger = 0;
+        state = State.IDLE;
+        idleTime = (int)(Math.random() * 600);
     }
 
     // Make animal move but not like a spastic dingo under the influence of marijuana
     public void update() {
-        // TODO Move a certain distance, have a wait period, move again.
+        // Manages movement
+        switch (state) {
+            case IDLE:
+                if (idleTime == 0) {
+                    state = State.MOVE;
+                    direction = (Math.random() > 0.5) ? 1 : -1;
+                    distance = (int)(Math.random() * 100 * direction);
+                }
+                else {
+                    idleTime -= MOVE_INCREMENT;
+                }
+                break;
+            case MOVE:
+                if (distance != 0) {
+                    x += direction * MOVE_INCREMENT;
+                    distance -= MOVE_INCREMENT;
+                }
+                else {
+                    state = State.IDLE;
+                    idleTime = (int)(Math.random() * 600);
+                }
+                break;
+        }
+        //Increase hunger
+        hunger += 0.005;
     }
 
     // Shows photo
@@ -30,6 +68,10 @@ public class Animal {
 
     //Shows some info like photos you have taken, hunger, plants it can eat, etc
     public void profile() {
+        
+    }
+
+    public void feed(Plant plant) {
 
     }
 }
