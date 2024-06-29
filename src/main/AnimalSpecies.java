@@ -9,4 +9,8 @@ public class AnimalSpecies {
         this.plants = plants;
         this.texture = texture;
     }
+
+    public String getTexture() {
+        return texture;
+    }
 }

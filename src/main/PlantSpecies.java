@@ -9,5 +9,10 @@ public class PlantSpecies {
         this.name = name;
         this.texture = texture;
         this.animals = animals;
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
     }
 }

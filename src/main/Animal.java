@@ -1,8 +1,8 @@
 package main;
 
-import java.awt.*;
+import graphics.DisplayObject;
 
-public class Animal {
+public class Animal extends Displayable {
     private enum State {
         IDLE,
         MOVE
@@ -22,6 +22,7 @@ public class Animal {
     private double idleTime;
 
     public Animal(String name, AnimalSpecies species) {
+        super(new DisplayObject(species.getTexture(), 0, 0, 100, 100));
         this.name = name;
         this.species = species;
 
@@ -59,11 +60,14 @@ public class Animal {
         }
         //Increase hunger
         hunger += 0.005;
-    }
 
-    // Shows photo
-    public void display() {
+        //Move image
+        object.move((int)x, (int)y);
 
+        //Check for death
+        if (MAX_HP - hunger <= 0) {
+            die();
+        }
     }
 
     //Shows some info like photos you have taken, hunger, plants it can eat, etc
@@ -72,6 +76,10 @@ public class Animal {
     }
 
     public void feed(Plant plant) {
+        hunger -= plant.getSpecies().getValue();
+    }
 
+    public void die() {
+        
     }
 }
