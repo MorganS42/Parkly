@@ -45,9 +45,9 @@ public class PhotoLibrary {
 
     public void forwardsOnePage() {
         bookPage++;
-        if (bookPage) {
+        //if (bookPage) {
 
-        }
+       // }
         displayPhotos(bookPage);
     }
 

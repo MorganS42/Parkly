@@ -33,4 +33,8 @@ public class AnimalSpecies {
         }
         return false;
     }
+
+    public String getName() {
+        return name;
+    }
 }
