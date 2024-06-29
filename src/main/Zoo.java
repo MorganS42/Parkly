@@ -3,17 +3,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Zoo {
-    List<Enclosure> animalEnclosure;
+    List<Enclosure> animalEnclosures;
 
     public Zoo() {
-        animalEnclosure = new ArrayList<Enclosure>();
+        this.animalEnclosures = new ArrayList<Enclosure>();
     }
 
     public void addEnclosure(String background, int numberAnimals) {
-        animalEnclosure.add(new Enclosure(background, numberAnimals));
+        this.animalEnclosures.add(new Enclosure(background));
     }
 
     public void deleteEnclosure(int index) {
-        animalEnclosure.remove(index);
+        this.animalEnclosures.remove(index);
     }
 }
