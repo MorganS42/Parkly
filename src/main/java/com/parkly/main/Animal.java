@@ -27,7 +27,7 @@ public class Animal extends Displayable {
     private double idleTime;
 
     public Animal(String name, AnimalSpecies species, String photo) {
-        super(new DisplayObject(species.getTexture(), 0, 0, (int) (Window.HEIGHT * 0.1 * (16.0/9.0)), (int) (Window.HEIGHT * 0.1)));
+        super(new DisplayObject(species.getTexture(), 0, 0, (int) (Window.HEIGHT * 0.1), (int) (Window.HEIGHT * 0.1)));
         this.name = name;
         this.species = species;
 
