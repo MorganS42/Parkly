@@ -13,4 +13,8 @@ public class AnimalSpecies {
     public String getTexture() {
         return texture;
     }
+
+    public String getName() {
+        return name;
+    }
 }
