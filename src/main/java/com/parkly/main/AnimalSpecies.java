@@ -4,6 +4,9 @@ public class AnimalSpecies {
     public static final AnimalSpecies[] ANIMAL_SPECIES = {
 		new AnimalSpecies("Possum", "possum.png", new PlantSpecies[] {
             
+		}),
+        new AnimalSpecies("Cockatoo", "cockatoo.png", new PlantSpecies[] {
+            
 		})
 	};
 

@@ -27,7 +27,11 @@ public class Parkly {
     public static final Zoo ZOO = new Zoo();
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        ZOO.addAnimal(new Animal("Bob", "Possum", ""));
+        ZOO.addAnimal(new Animal("Bob", "Possum", "image2.png"));
+        ZOO.addAnimal(new Animal("Dave", "Possum", "image2.png"));
+
+        ZOO.addAnimal(new Animal("Carrot", "Cockatoo", "image3.png"));
+        ZOO.addAnimal(new Animal("Hubert Blaine Wolfeschlegelsteinhausenbergerdorff Sr.", "Cockatoo", "image3.png"));
         ZOO.show();
 
         GAME_ENGINE.schedule(new GameEngine(), 0, GameEngine.PERIOD);
