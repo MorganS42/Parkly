@@ -2,7 +2,9 @@ package main;
 
 import java.awt.*;
 
-public class Animal {
+import graphics.DisplayObject;
+
+public class Animal extends Displayable {
     public static final String TEXTURE = "";
     public static final int MAX_HP = 100;
 
@@ -20,7 +22,7 @@ public class Animal {
 
     // Make animal move but not like a spastic dingo under the influence of marijuana
     public void update() {
-        // TODO Move a certain distance, have a wait period, move again.
+
     }
 
     // Shows photo
