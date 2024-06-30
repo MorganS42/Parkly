@@ -25,4 +25,8 @@ public class PlantSpecies {
         }
         return null;
     }
+
+    public String getTexture() {
+        return texture;
+    }
 }

@@ -1,8 +1,10 @@
 package com.parkly.main;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import com.parkly.graphics.*;
+import com.parkly.graphics.Window;
 
 public class PhotoLibrary extends Displayable {
     public static final int PHOTOS_PER_ROW = 2;
@@ -16,16 +18,14 @@ public class PhotoLibrary extends Displayable {
     public static final int PHOTO_GAP_Y = (int) Math.floor(Window.HEIGHT * 0.1);
 
     static List<Photo> photos;
-    static String photoBook;
     static int currentPage;
 
-    public PhotoLibrary(String photoBook) {
+    public PhotoLibrary() {
         super(new DisplayObject((Graphics2D g2, Display display) -> {
             displayPhotos(g2, display);
         }));
 
         photos = new ArrayList<Photo>();
-        PhotoLibrary.photoBook = photoBook;
         currentPage = 0;
     }
 
@@ -46,14 +46,23 @@ public class PhotoLibrary extends Displayable {
 
     public static void displayPhotos(Graphics2D g2, Display display) {
         // Draw the photobook background
+        g2.setColor(Color.white);
         g2.drawRect(0, 0, Window.WIDTH, Window.HEIGHT);
         for(int i = 0; i < photos.size(); i++) {
             if(photos.get(i).page == currentPage) {
                 //Display the photo at the x and y coords
                 //Change the nulls below!
-                g2.drawImage(/*photos.get(i).image*/ null, photos.get(i).x, photos.get(i).y, PHOTO_WIDTH, PHOTO_HEIGHT, null);
+                g2.drawImage(Utils.toImage(photos.get(i).image), photos.get(i).x, photos.get(i).y, PHOTO_WIDTH, PHOTO_HEIGHT, display);
             }
         }
+    }
+
+    public void show() {
+        super.show();
+    }
+
+    public void hide() {
+        super.hide();
     }
 
     public void forwardsOnePage() {

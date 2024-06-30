@@ -10,16 +10,34 @@ public class Enclosure extends Displayable {
 
     public static final String background = "background.png";
     List<Animal> animals;
+    List<Plant> plants;
     AnimalSpecies species;
     
     public Enclosure(AnimalSpecies species) {
         super(new DisplayObject(background, 0, 0, Window.WIDTH, Window.HEIGHT));
         this.animals = new ArrayList<Animal>();
+        this.plants = new ArrayList<Plant>();
         this.species = species;
     }
 
-    void addAnimal(Animal newAnimal) {
+    public void addAnimal(Animal newAnimal) {
         if(animals.size() < MAX_ANIMALS) this.animals.add(newAnimal);
+    }
+
+    public void addPlant(Plant plant) {
+        this.plants.add(plant);
+    }
+
+    public void removePlant() {
+        plants.clear();
+    }
+
+    public int getPlantSize() {
+        return plants.size();
+    }
+
+    public int getTargetX() {
+        return plants.get(0).getX();
     }
 
     @Override
