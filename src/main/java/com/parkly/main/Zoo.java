@@ -16,8 +16,8 @@ public class Zoo implements Updatable {
 
     @Override
     public void update() {
-        // for(Enclosure enclosure : enclosures) enclosure.update();
-        enclosures.get(current).update();
+        for(Enclosure enclosure : enclosures) enclosure.update();
+        //enclosures.get(current).update();
     }
 
     public void addAnimal(Animal animal) {
@@ -47,14 +47,18 @@ public class Zoo implements Updatable {
     }
 
     public void moveLeft() {
+        if(current >= enclosures.size() - 1) return;
+
         enclosures.get(current).hide();
-        if(current < enclosures.size() - 1) current++;
+        current++;
         enclosures.get(current).show();
     }
 
     public void moveRight() {
+        if(current <= 0) return;
+
         enclosures.get(current).hide();
-        if(current > 0) current--;
+        current--;
         enclosures.get(current).show();
     }
 }

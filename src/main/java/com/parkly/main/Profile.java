@@ -10,7 +10,7 @@ public class Profile extends Displayable {
         super(new DisplayObject((Graphics2D g2, Display display) -> {
             double hunger = animal.getHunger();
             String name = animal.getName();
-            g2.drawImage(Utils.toImage("square.png"), (int)(Window.WIDTH * 0.05), (int)(Window.HEIGHT * 0.3), (int)(Window.WIDTH * 0.9), (int)(Window.WIDTH * 0.9), display);
+            g2.drawImage(Utils.toImage("redcross.png"), (int)(Window.WIDTH * 0.05), (int)(Window.HEIGHT * 0.3), (int)(Window.WIDTH * 0.9), (int)(Window.WIDTH * 0.9), display);
             g2.drawImage(Utils.toImage("redcross.png"), (int)(Window.WIDTH * 0.8), (int)(Window.HEIGHT * 0.35), (int)(Window.WIDTH * 0.1), (int)(Window.WIDTH * 0.1), display);
             g2.drawImage(Utils.toImage(animal.getPhoto()), (int)(Window.WIDTH * 0.1), (int)(Window.HEIGHT * 0.35), (int)(Window.WIDTH * 0.4 * (16.0/9.0)), (int)(Window.WIDTH * 0.4), display);
 

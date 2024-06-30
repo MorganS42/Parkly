@@ -52,32 +52,34 @@ public class Animal extends Displayable {
                 if (idleTime <= 0) {
                     state = State.MOVE;
                     xdirection = (Math.random() > 0.5) ? 1 : -1;
-                    xdistance = (int)(Math.random() * 100);
-                    if (species.canFly()) {
-                        ydirection = (Math.random() > 0.5) ? 1 : -1;
-                        ydistance = (int)(Math.random() * 30);
-                        if (ydirection == 1) {
-                            while (ydistance + y > Window.HEIGHT * 0.3) {
-                                ydistance = (int)(Math.random() * 100);
-                            }
-                        }
-                        else {
-                            while (y - ydistance < Window.HEIGHT) {
-                                ydistance = (int)(Math.random() * 100);
-                            }
-                        }
-                    }
+                    xdistance = (int)(Math.random() * (Math.abs(x - (xdirection == 1 ? Window.WIDTH : 0))));
+                    ydirection = (Math.random() > 0.5) ? 1 : -1;
+                    ydistance = (int)(Math.random() * (Math.abs(y - (ydirection == 1 ? Window.HEIGHT : 0))));
+                    // if (species.canFly()) {
+                    //     ydirection = (Math.random() > 0.5) ? 1 : -1;
+                    //     ydistance = (int)(Math.random() * 30);
+                    //     if (ydirection == 1) {
+                    //         while (ydistance + y > Window.HEIGHT * 0.3) {
+                    //             ydistance = (int)(Math.random() * 100);
+                    //         }
+                    //     }
+                    //     else {
+                    //         while (y - ydistance < Window.HEIGHT) {
+                    //             ydistance = (int)(Math.random() * 100);
+                    //         }
+                    //     }
+                    // }
 
-                    if (xdirection == 1) {
-                        while (xdistance + x > Window.WIDTH) {
-                            xdistance = (int)(Math.random() * 100);
-                        }
-                    }
-                    else {
-                        while (x - xdistance < Window.WIDTH) {
-                            xdistance = (int)(Math.random() * 100);
-                        }
-                    }
+                    // if (xdirection == 1) {
+                    //     while (xdistance + x > Window.WIDTH) {
+                    //         xdistance = (int)(Math.random() * 100);
+                    //     }
+                    // }
+                    // else {
+                    //     while (x - xdistance < Window.WIDTH) {
+                    //         xdistance = (int)(Math.random() * 100);
+                    //     }
+                    // }
                 }
                 else {
                     idleTime -= MOVE_INCREMENT;
