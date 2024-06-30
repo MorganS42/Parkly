@@ -10,7 +10,8 @@ public class Animal extends Displayable {
     }
 
     public static final int MAX_HP = 100;
-    public static final double MOVE_INCREMENT = 5;
+    public static final double X_MOVE_INCREMENT = 5;
+    public static final double Y_MOVE_INCREMENT = 10;
 
     private double hunger, x, y;
     
@@ -52,48 +53,29 @@ public class Animal extends Displayable {
                 if (idleTime <= 0) {
                     state = State.MOVE;
                     xdirection = (Math.random() > 0.5) ? 1 : -1;
-                    xdistance = (int)(Math.random() * (Math.abs(x - (xdirection == 1 ? Window.WIDTH : 0))));
-                    ydirection = (Math.random() > 0.5) ? 1 : -1;
-                    ydistance = (int)(Math.random() * (Math.abs(y - (ydirection == 1 ? Window.HEIGHT : 0))));
-                    // if (species.canFly()) {
-                    //     ydirection = (Math.random() > 0.5) ? 1 : -1;
-                    //     ydistance = (int)(Math.random() * 30);
-                    //     if (ydirection == 1) {
-                    //         while (ydistance + y > Window.HEIGHT * 0.3) {
-                    //             ydistance = (int)(Math.random() * 100);
-                    //         }
-                    //     }
-                    //     else {
-                    //         while (y - ydistance < Window.HEIGHT) {
-                    //             ydistance = (int)(Math.random() * 100);
-                    //         }
-                    //     }
-                    // }
-
-                    // if (xdirection == 1) {
-                    //     while (xdistance + x > Window.WIDTH) {
-                    //         xdistance = (int)(Math.random() * 100);
-                    //     }
-                    // }
-                    // else {
-                    //     while (x - xdistance < Window.WIDTH) {
-                    //         xdistance = (int)(Math.random() * 100);
-                    //     }
-                    // }
+                    xdistance = (int)(Math.random() * (Math.abs(x - (xdirection == 1 ? Window.WIDTH * 0.9 : 0))));
+                    if (species.canFly()) {
+                        ydirection = (Math.random() > 0.5) ? 1 : -1;
+                        ydistance = (int)(Math.random() * (Math.abs(x - (xdirection == 1 ? Window.HEIGHT * 0.4 : 0))));
+                    }
+                    else {
+                        ydirection = 1;
+                        ydistance = 0;
+                    }
                 }
                 else {
-                    idleTime -= MOVE_INCREMENT;
+                    idleTime -= X_MOVE_INCREMENT;
                 }
                 break;
             case MOVE:
                 if (xdistance >= 0 || ydistance >= 0) {
                     if (xdistance >= 0) {
-                        x += xdirection * MOVE_INCREMENT;
-                        xdistance -= MOVE_INCREMENT;
+                        x += xdirection * X_MOVE_INCREMENT;
+                        xdistance -= X_MOVE_INCREMENT;
                     }
                     if (ydistance >= 0) {
-                        y += ydirection * MOVE_INCREMENT;
-                        ydistance -= MOVE_INCREMENT;
+                        y += ydirection * Y_MOVE_INCREMENT;
+                        ydistance -= Y_MOVE_INCREMENT;
                     }
                 }
                 else {
