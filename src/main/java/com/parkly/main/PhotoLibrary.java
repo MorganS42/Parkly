@@ -47,7 +47,7 @@ public class PhotoLibrary extends Displayable {
     public static void displayPhotos(Graphics2D g2, Display display) {
         // Draw the photobook background
         g2.setColor(Color.white);
-        g2.drawRect(0, 0, Window.WIDTH, Window.HEIGHT);
+        g2.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
         for(int i = 0; i < photos.size(); i++) {
             if(photos.get(i).page == currentPage) {
                 //Display the photo at the x and y coords

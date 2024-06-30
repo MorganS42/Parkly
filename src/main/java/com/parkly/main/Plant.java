@@ -15,7 +15,7 @@ public class Plant extends Displayable {
 
         this.species = species;
         this.photo = photo;
-        this.plantTime = 1000;
+        this.plantTime = 300;
 
         x = (int)(Math.random() * Window.WIDTH);
         y = (int)(Window.HEIGHT - Window.HEIGHT * 0.2);
