@@ -53,8 +53,21 @@ public class Animal extends Displayable {
                     state = State.MOVE;
                     xdirection = (Math.random() > 0.5) ? 1 : -1;
                     xdistance = (int)(Math.random() * 100);
-                    ydirection = (Math.random() > 0.5) ? 1 : -1;
-                    ydistance = (int)(Math.random() * 30);
+                    if (species.canFly()) {
+                        ydirection = (Math.random() > 0.5) ? 1 : -1;
+                        ydistance = (int)(Math.random() * 30);
+                        if (ydirection == 1) {
+                            while (ydistance + y > Window.HEIGHT * 0.3) {
+                                ydistance = (int)(Math.random() * 100);
+                            }
+                        }
+                        else {
+                            while (y - ydistance < Window.HEIGHT) {
+                                ydistance = (int)(Math.random() * 100);
+                            }
+                        }
+                    }
+
                     if (xdirection == 1) {
                         while (xdistance + x > Window.WIDTH) {
                             xdistance = (int)(Math.random() * 100);
@@ -63,16 +76,6 @@ public class Animal extends Displayable {
                     else {
                         while (x - xdistance < Window.WIDTH) {
                             xdistance = (int)(Math.random() * 100);
-                        }
-                    }
-                    if (ydirection == 1) {
-                        while (ydistance + y > Window.HEIGHT * 0.3) {
-                            ydistance = (int)(Math.random() * 100);
-                        }
-                    }
-                    else {
-                        while (y - ydistance < Window.HEIGHT) {
-                            ydistance = (int)(Math.random() * 100);
                         }
                     }
                 }
