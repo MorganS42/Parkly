@@ -38,6 +38,22 @@ public class Zoo implements Updatable {
         }
     }
 
+    public void removePlant() {
+        enclosures.get(current).removePlant();
+    }
+
+    public int getPlantSize() {
+        return enclosures.get(current).getPlantSize();
+    }
+
+    public int getTargetX() {
+        return enclosures.get(current).getTargetX();
+    }
+
+    public void addPlant() {
+        enclosures.get(current).addPlant(new Plant("Eucalyptus", "plant.png"));
+    }
+
     public void show() {
         enclosures.get(current).show();
     }
