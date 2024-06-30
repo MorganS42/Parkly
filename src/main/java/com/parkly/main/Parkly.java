@@ -68,7 +68,7 @@ public class Parkly {
         }
     }
 
-    public static void detectLabels(ImageAnnotatorClient vision, String filePath) throws IOException {
+    public static List<String> detectLabels(ImageAnnotatorClient vision, String filePath) throws IOException {
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = ByteString.readFrom(new FileInputStream(filePath));
@@ -83,16 +83,22 @@ public class Parkly {
         BatchAnnotateImagesResponse response = vision.batchAnnotateImages(requests);
         List<AnnotateImageResponse> responses = response.getResponsesList();
 
+        List<String> tags = new ArrayList<String>();
+
         for (AnnotateImageResponse res : responses) {
             if (res.hasError()) {
                 System.out.printf("Error: %s\n", res.getError().getMessage());
-                return;
+                return null;
             }
 
             for (EntityAnnotation annotation : res.getLabelAnnotationsList()) {
                 System.out.printf("Label: %s\n", annotation.getDescription());
                 System.out.printf("Score: %.3f\n", annotation.getScore());
+
+                tags.add(annotation.getDescription());
             }
         }
+
+        return tags;
     }
 }

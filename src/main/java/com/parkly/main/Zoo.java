@@ -54,6 +54,11 @@ public class Zoo implements Updatable {
         enclosures.get(current).addPlant(new Plant("Eucalyptus", "plant.png"));
     }
 
+    public boolean canEat() {
+        for(Plant plant : enclosures.get(current).plants) if(!plant.canEat()) return false;
+        return true;
+    }
+
     public void show() {
         enclosures.get(current).show();
     }

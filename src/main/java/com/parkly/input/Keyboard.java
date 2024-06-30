@@ -16,6 +16,11 @@ public class Keyboard {
 					Parkly.WEBCAM.show();
 					break;
 
+				case 't':
+					if(Parkly.WEBCAM.run().contains("Plant")) {
+						System.out.println("Added Plant!!");
+						Parkly.ZOO.addPlant();
+					}
 				case 's':
 					Parkly.ZOO.show();
 					Parkly.WEBCAM.hide();
@@ -29,10 +34,6 @@ public class Keyboard {
 					Parkly.ZOO.moveLeft();
 					break;
 
-				case 't':
-					Parkly.WEBCAM.run();
-					break; 
-
 				case 'p':
 					Parkly.PHOTO_LIBRARY.show();
 					Parkly.ZOO.hide();
@@ -42,7 +43,7 @@ public class Keyboard {
 					Parkly.PHOTO_LIBRARY.hide();
 					Parkly.ZOO.show();
 					break;
-					
+
 				case 'f':
 					Parkly.ZOO.addPlant();
 					break;

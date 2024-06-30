@@ -8,14 +8,17 @@ public class Plant extends Displayable {
     private String photo;
     private int x, y;
 
+    private int plantTime;
+
     public Plant(PlantSpecies species, String photo) {
-        super(new DisplayObject(species.getTexture(), 0, 0, (int) (Window.HEIGHT * 0.1), (int) (Window.HEIGHT * 0.1)));
+        super(new DisplayObject(species.getTexture(), 0, 0, (int) (Window.HEIGHT * 0.2), (int) (Window.HEIGHT * 0.2)));
 
         this.species = species;
         this.photo = photo;
+        this.plantTime = 1000;
 
         x = (int)(Math.random() * Window.WIDTH);
-        y = (int)(Window.HEIGHT - Window.HEIGHT * 0.15);
+        y = (int)(Window.HEIGHT - Window.HEIGHT * 0.2);
         this.object.move(x, y);
     }
 
@@ -37,7 +40,10 @@ public class Plant extends Displayable {
 
     @Override
     public void update() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        plantTime--;
+    }
+
+    public boolean canEat() {
+        return plantTime < 0;
     }
 }

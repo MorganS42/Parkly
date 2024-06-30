@@ -10,8 +10,8 @@ public class Animal extends Displayable {
     }
 
     public static final int MAX_HP = 100;
-    public static final double X_MOVE_INCREMENT = 5;
-    public static final double Y_MOVE_INCREMENT = 10;
+    public static final double X_MOVE_INCREMENT = 2;
+    public static final double Y_MOVE_INCREMENT = 5;
 
     private double hunger, x, y;
     
@@ -87,7 +87,7 @@ public class Animal extends Displayable {
                 }
                 else {
                     targetX = Parkly.ZOO.getTargetX();
-                    if(Math.abs(x - targetX) < X_MOVE_INCREMENT) {
+                    if(Math.abs(x - targetX) < X_MOVE_INCREMENT && Parkly.ZOO.canEat()) {
                         Parkly.ZOO.removePlant();
                         this.hunger -= 5;
                         if(this.hunger < 0) this.hunger = 0;
@@ -150,7 +150,6 @@ public class Animal extends Displayable {
     @Override
     public void show() {
         super.show();
-        showProfile();
     }
 
     @Override

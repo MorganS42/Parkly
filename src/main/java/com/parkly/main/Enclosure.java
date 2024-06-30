@@ -45,6 +45,7 @@ public class Enclosure extends Displayable {
     @Override
     public void update() {
         for(Animal animal : animals) animal.update();
+        for(Plant plant : plants) plant.update();
     }
 
     public boolean removeAnimal(Animal animal) {

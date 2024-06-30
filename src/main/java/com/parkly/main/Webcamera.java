@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -32,13 +33,14 @@ public class Webcamera extends Displayable {
         
     }
     
-    public void run() {
+    public List<String> run() {
         BufferedImage image = webcam.getImage();
         try {
             ImageIO.write(image, ImageUtils.FORMAT_JPG, new java.io.File("res/selfie.jpg"));
-            Parkly.detectLabels(Parkly.vision, "res/selfie.jpg");
+            return Parkly.detectLabels(Parkly.vision, "res/selfie.jpg");
         } 
         catch (IOException e) {
         }
+        return null;
     }
 }
