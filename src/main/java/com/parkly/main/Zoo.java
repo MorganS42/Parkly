@@ -22,9 +22,9 @@ public class Zoo implements Updatable {
 
     public void addAnimal(Animal animal) {
         for(Enclosure enclosure : enclosures) {
-            if(enclosure.species == animal.getSpecies()) {
+            if(enclosure.species.equals(animal.getSpecies())) {
                 enclosure.addAnimal(animal);
-                break;
+                return;
             }
         }
         Enclosure newEnclosure = new Enclosure(animal.getSpecies());

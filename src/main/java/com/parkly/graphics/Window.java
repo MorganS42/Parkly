@@ -5,6 +5,9 @@ import java.awt.GraphicsEnvironment;
 
 import javax.swing.JFrame;
 
+import com.parkly.input.Keyboard;
+import com.parkly.input.Mouse;
+
 public class Window {
 	public JFrame frame;
 	
@@ -31,5 +34,9 @@ public class Window {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	    frame.setLayout(null);
+
+		frame.addMouseListener(new Mouse.ClickListener());
+	    frame.addMouseMotionListener(new Mouse.MotionListener());
+	    frame.addKeyListener(new Keyboard.KeyListener());
 	}
 }

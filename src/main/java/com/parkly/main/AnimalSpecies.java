@@ -4,7 +4,10 @@ public class AnimalSpecies {
     public static final AnimalSpecies[] ANIMAL_SPECIES = {
 		new AnimalSpecies("Possum", "possum.png", new PlantSpecies[] {
             
-		}, false)
+		}, false),
+        new AnimalSpecies("Cockatoo", "cockatoo.png", new PlantSpecies[] {
+            
+		}, true)
 	};
 
     private String name, texture;

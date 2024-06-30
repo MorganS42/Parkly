@@ -155,5 +155,6 @@ public class Animal extends Displayable {
     @Override
     public void hide() {
         super.hide();
+        profile.hide();
     }
 }
