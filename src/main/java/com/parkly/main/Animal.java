@@ -53,10 +53,14 @@ public class Animal extends Displayable {
                 if (idleTime <= 0) {
                     state = State.MOVE;
                     xdirection = (Math.random() > 0.5) ? 1 : -1;
-                    xdistance = (int)(Math.random() * (Math.abs(x - (xdirection == 1 ? Window.WIDTH : 0))));
+                    xdistance = (int)(Math.random() * (Math.abs(x - (xdirection == 1 ? Window.WIDTH * 0.9 : 0))));
                     if (species.canFly()) {
                         ydirection = (Math.random() > 0.5) ? 1 : -1;
                         ydistance = (int)(Math.random() * (Math.abs(x - (xdirection == 1 ? Window.HEIGHT * 0.4 : 0))));
+                    }
+                    else {
+                        ydirection = 1;
+                        ydistance = 0;
                     }
                 }
                 else {
