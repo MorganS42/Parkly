@@ -12,22 +12,20 @@ public class PhotoLibrary extends Displayable {
     public static final int PHOTOS_PER_PAGE = PHOTOS_PER_COL * PHOTOS_PER_ROW;
     public static final int FIRST_PHOTO_X = (int) Math.floor(Window.WIDTH * 0.05);
     public static final int FIRST_PHOTO_Y = (int) Math.floor(Window.HEIGHT * 0.05);
-    public static final int PHOTO_WIDTH = (int) Math.floor(Window.HEIGHT * 0.4);
-    public static final int PHOTO_HEIGHT = (int) Math.floor(Window.HEIGHT * 0.4);
+    public static final int PHOTO_WIDTH = (int) Math.floor(Window.HEIGHT * 0.2);
+    public static final int PHOTO_HEIGHT = (int) Math.floor(Window.HEIGHT * 0.2);
     public static final int PHOTO_GAP_X = (int) Math.floor(Window.HEIGHT * 0.1);
     public static final int PHOTO_GAP_Y = (int) Math.floor(Window.HEIGHT * 0.1);
 
     static List<Photo> photos;
-    static String photoBook;
     static int currentPage;
 
-    public PhotoLibrary(String photoBook) {
+    public PhotoLibrary() {
         super(new DisplayObject((Graphics2D g2, Display display) -> {
             displayPhotos(g2, display);
         }));
 
         photos = new ArrayList<Photo>();
-        PhotoLibrary.photoBook = photoBook;
         currentPage = 0;
     }
 
@@ -57,6 +55,14 @@ public class PhotoLibrary extends Displayable {
                 g2.drawImage(Utils.toImage(photos.get(i).image), photos.get(i).x, photos.get(i).y, PHOTO_WIDTH, PHOTO_HEIGHT, display);
             }
         }
+    }
+
+    public void show() {
+        super.show();
+    }
+
+    public void hide() {
+        super.hide();
     }
 
     public void forwardsOnePage() {
