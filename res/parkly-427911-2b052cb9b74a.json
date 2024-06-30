@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "parkly-427911",
+  "private_key_id": "2b052cb9b74a596993e3fa6f42ce9069af7f928e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDU0qpOf957FEmW\nZI5EWy95VGun2R3wt3WiH3BtF6Sy2NkNDPgUWjUzpLFd0FnE+RXHkDDKr7tDItF0\nUpGf7cbo3AKt7h2LcbmvGjYB9CJr2+uZAQ+n3+zQ/glGlMiGJ+r/+FWk4rtqL4Y1\n3CHDmyazvA5cHPeQeOk4ISzTWrqyL+z2nU36NTITz+blgseAia1Vt3rXZbC80EAw\nD2HIGpueEOLkNmFG2SYE40eBR2NzjLeevJMiWlkRa2SVK54HuNRxOS2ZjQQM/Cxw\nCvVhlT4i30XvokWIIdoQEhQjamVf1nbJdc4zbFCqMdJ4oFRneOQLIjb+K2J8yFS9\n/3h6CJODAgMBAAECggEAPf7cM5/WHH5tbUz/kHQLoUlxTuTVbvDSaJbF9lGD3cGD\ngOS9Q5h/lPqt3Ek8TT/OE2Myg2iroUP8ReljmHX4ko68jRQnMR7A23xELU+D022t\n9NU1TU7SupK1+wSOYV4xe71InY6az7TmYLwubb+9h3AJstWRXFmMfphTaYItjogV\nPSQYOexUgE3RqLP4kJynRaNNPpYIWHE8x2Pb9gTkUX6KBHyu/ELsXcWxWd2r6P/W\nXI73CxN2CUrLzTkhPJPe5tutojEbcYZ0CFP0ywC3olxYvAg1P3jWuXVwZG9Ve5JO\n/ZN8JRMe9NiPyACml2Be+6y4ju8BsvGhdHDj+J/MAQKBgQD4MWJR1/A3i3igsayP\nPDf5/XKoWYYbPY9sjjwEfhqCAKNJNutKZ8rhbZeEh7WkEMJdsiUrkh9/elXGYlT7\ngRyR+wEaVh9ULRNXyqevK6gzRtLnjwcZ/yOR4Wcg3/7gEHXc9TarhMKHb6N7fRr4\ncxfatnkSBtx3WbIb+OxiXabNgwKBgQDbhHVPpdJ7pM4OQ77REsE99Fjl1GMy4KbX\nx9ioDGY407Ym6x1sfc/CDdJFL8iRh6t6VFzkGLRg3jy+2bF4mS5ZaLU7iKNetk0j\nq8HnN/UUXaaoGPXNBCGWIKOoUc/g1LXdNpJimQDd3chM6vfGLxl9/g2QkXSyqDYk\n8x418CJCAQKBgQDTQ+Y3WKKoBVa3IsaKXm4fpDg3SY04Hty5QRGhmV4jDzvvFIqQ\nmW0/GrSBIavibkmkzAGL5yRctNvStN02AR86u/iiXHDqjDwM3PqDx5uzmjPo2/zl\niiLTCJVqjIE+ZYSOg0T4F1gnRUZZ1ZJhrka969l/GMwN5BIScX9189YK1QKBgQCS\n94Km+YkLGNKQAFEvntPby8z8yo5DkN6DFxx5nhuOLkgElGLVsQG4lRJTGeO5c1Ce\nDP9IAzY4qHGZARxtdnjuiUjU++0MyxaoLCUczXz6zpx2bIecZAisf1uypFt91kuQ\nOCoXcwJ+iC7DOIj8maoCjWW9hXTQ7AecA10VlZkKAQKBgGN2ztVPVFG98EmRebGU\nkchWLs5QVv69dJZ3MZ9K0Tcr2xQFhHrgvrJrnVjC9EUghf0DAM9dEJ9VxE2w+pLT\nUQydaGhj82rjtXYG0VoDg4tGQ/5+nvZu6BwFqjbWljUIiuucAzeSql3yDAF1Q62e\nmzDlZ+T/nlyMeI1wobFQ0f42\n-----END PRIVATE KEY-----\n",
+  "client_email": "parker@parkly-427911.iam.gserviceaccount.com",
+  "client_id": "103414817427842433482",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/parker%40parkly-427911.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

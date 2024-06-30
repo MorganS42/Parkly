@@ -9,11 +9,11 @@ public abstract class Displayable implements Updatable {
         this.object = displayObject;
     }
     
-    void show() {
+    public void show() {
         Parkly.DISPLAY.addObject(object);
     }
 
-    void hide() {
+    public void hide() {
         Parkly.DISPLAY.removeObject(object);
     }
 }

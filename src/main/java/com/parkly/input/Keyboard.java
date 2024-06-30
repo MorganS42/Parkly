@@ -13,10 +13,12 @@ public class Keyboard {
 			switch(c) {
 				case 'h':
 					Parkly.ZOO.hide();
+					Parkly.WEBCAM.show();
 					break;
 
 				case 's':
 					Parkly.ZOO.show();
+					Parkly.WEBCAM.hide();
 					break;
 
 				case 'm':
@@ -25,6 +27,10 @@ public class Keyboard {
 
 				case 'n':
 					Parkly.ZOO.moveLeft();
+					break;
+
+				case 't':
+					Parkly.WEBCAM.run();
 					break;
 			}
 		}

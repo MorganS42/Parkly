@@ -3,6 +3,7 @@ package com.parkly.main;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;
+import com.github.sarxos.webcam.Webcam;
 import com.google.api.gax.core.FixedCredentialsProvider;
 
 import java.io.FileInputStream;
@@ -26,7 +27,19 @@ public class Parkly {
 
     public static final Zoo ZOO = new Zoo();
 
+    public static final Webcamera WEBCAM = new Webcamera();
+
+    public static final String PATH = "res/parkly-427911-2b052cb9b74a.json";
+    
+    public static GoogleCredentials credentials;
+    public static ImageAnnotatorSettings settings;
+    public static  ImageAnnotatorClient vision;
+
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        credentials = GoogleCredentials.fromStream(new FileInputStream(PATH));
+        settings = ImageAnnotatorSettings.newBuilder().setCredentialsProvider(FixedCredentialsProvider.create(credentials)).build();
+        vision = ImageAnnotatorClient.create(settings);
+
         ZOO.addAnimal(new Animal("Bob", "Possum", "image2.png"));
         ZOO.addAnimal(new Animal("Dave", "Possum", "image2.png"));
 
@@ -36,15 +49,7 @@ public class Parkly {
 
         GAME_ENGINE.schedule(new GameEngine(), 0, GameEngine.PERIOD);
 
-        // String jsonPath = "res/parkly-427911-3c077268a428.json";
-
-        // GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream(jsonPath));
-        // ImageAnnotatorSettings settings = ImageAnnotatorSettings.newBuilder().setCredentialsProvider(FixedCredentialsProvider.create(credentials)).build();
-
-        // try (ImageAnnotatorClient vision = ImageAnnotatorClient.create(settings)) {
-        //     String imagePath = "res/image.png";
-        //     detectLabels(vision, imagePath);
-        // }
+        detectLabels(vision, "res/selfie.jpg");
     }
 
     static class GameEngine extends TimerTask {
@@ -58,7 +63,7 @@ public class Parkly {
         }
     }
 
-    private static void detectLabels(ImageAnnotatorClient vision, String filePath) throws IOException {
+    public static void detectLabels(ImageAnnotatorClient vision, String filePath) throws IOException {
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = ByteString.readFrom(new FileInputStream(filePath));
