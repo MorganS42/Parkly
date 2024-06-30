@@ -26,6 +26,9 @@ public class Keyboard {
 				case 'n':
 					Parkly.ZOO.moveLeft();
 					break;
+				case 'f':
+					Parkly.ZOO.addPlant();
+					break;
 			}
 		}
 	}

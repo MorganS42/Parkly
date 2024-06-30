@@ -68,19 +68,33 @@ public class Animal extends Displayable {
                 }
                 break;
             case MOVE:
-                if (xdistance >= 0 || ydistance >= 0) {
-                    if (xdistance >= 0) {
-                        x += xdirection * X_MOVE_INCREMENT;
-                        xdistance -= X_MOVE_INCREMENT;
+                if (Parkly.ZOO.getPlantSize() == 0 || canFly()) {
+                    if (xdistance > 0 || ydistance > 0) {
+                        if (xdistance > 0) {
+                            x += xdirection * X_MOVE_INCREMENT;
+                            xdistance -= X_MOVE_INCREMENT;
+                        }
+                        if (ydistance > 0 && species.canFly()) {
+                            y += ydirection * Y_MOVE_INCREMENT;
+                            ydistance -= Y_MOVE_INCREMENT;
+                        }
                     }
-                    if (ydistance >= 0) {
-                        y += ydirection * Y_MOVE_INCREMENT;
-                        ydistance -= Y_MOVE_INCREMENT;
+                    else {
+                        state = State.IDLE;
+                        idleTime = (int)(Math.random() * 100);
                     }
                 }
                 else {
-                    state = State.IDLE;
-                    idleTime = (int)(Math.random() * 100);
+                    targetX = Parkly.ZOO.getTargetX();
+                    if (targetX > x) {
+                        x += X_MOVE_INCREMENT;
+                    }
+                    else if (targetX < x) {
+                        x -= X_MOVE_INCREMENT;
+                    }
+                    else {
+                        Parkly.ZOO.removePlant();
+                    }
                 }
                 break;
         }
