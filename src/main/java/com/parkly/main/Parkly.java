@@ -51,6 +51,8 @@ public class Parkly {
 
         PHOTO_LIBRARY.addPhoto("image2.png", "Possum");
         PHOTO_LIBRARY.addPhoto("image3.png", "Cockatoo");
+        PHOTO_LIBRARY.addPhoto("image3.png", "Cockatoo");
+        PHOTO_LIBRARY.addPhoto("image2.png", "Possum");
 
         GAME_ENGINE.schedule(new GameEngine(), 0, GameEngine.PERIOD);
     }
