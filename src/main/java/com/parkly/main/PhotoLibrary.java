@@ -1,8 +1,10 @@
 package com.parkly.main;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import com.parkly.graphics.*;
+import com.parkly.graphics.Window;
 
 public class PhotoLibrary extends Displayable {
     public static final int PHOTOS_PER_ROW = 2;
@@ -46,13 +48,13 @@ public class PhotoLibrary extends Displayable {
 
     public static void displayPhotos(Graphics2D g2, Display display) {
         // Draw the photobook background
-        g2.setColor(Color.WHITE);
+        g2.setColor(Color.white);
         g2.drawRect(0, 0, Window.WIDTH, Window.HEIGHT);
         for(int i = 0; i < photos.size(); i++) {
             if(photos.get(i).page == currentPage) {
                 //Display the photo at the x and y coords
                 //Change the nulls below!
-                g2.drawImage(utils.toImage(photos.get(i).image), photos.get(i).x, photos.get(i).y, PHOTO_WIDTH, PHOTO_HEIGHT, display);
+                g2.drawImage(Utils.toImage(photos.get(i).image), photos.get(i).x, photos.get(i).y, PHOTO_WIDTH, PHOTO_HEIGHT, display);
             }
         }
     }
