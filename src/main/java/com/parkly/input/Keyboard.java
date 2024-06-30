@@ -26,6 +26,16 @@ public class Keyboard {
 				case 'n':
 					Parkly.ZOO.moveLeft();
 					break;
+
+				case 'p':
+					Parkly.PHOTO_LIBRARY.show();
+					Parkly.ZOO.hide();
+					break;
+
+				case 'l':
+					Parkly.PHOTO_LIBRARY.hide();
+					Parkly.ZOO.show();
+					break;
 			}
 		}
 	}

@@ -26,6 +26,8 @@ public class Parkly {
 
     public static final Zoo ZOO = new Zoo();
 
+    public static final PhotoLibrary PHOTO_LIBRARY = new PhotoLibrary();
+
     public static void main(String[] args) throws FileNotFoundException, IOException {
         ZOO.addAnimal(new Animal("Bob", "Possum", "image2.png"));
         ZOO.addAnimal(new Animal("Dave", "Possum", "image2.png"));
@@ -33,6 +35,9 @@ public class Parkly {
         ZOO.addAnimal(new Animal("Carrot", "Cockatoo", "image3.png"));
         ZOO.addAnimal(new Animal("Hubert Blaine Wolfeschlegelsteinhausenbergerdorff Sr.", "Cockatoo", "image3.png"));
         ZOO.show();
+
+        PHOTO_LIBRARY.addPhoto("image2.png", "Possum");
+        PHOTO_LIBRARY.addPhoto("image3.png", "Cockatoo");
 
         GAME_ENGINE.schedule(new GameEngine(), 0, GameEngine.PERIOD);
 
