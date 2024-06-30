@@ -26,9 +26,11 @@ public class Enclosure extends Displayable {
 
     public void addPlant(Plant plant) {
         this.plants.add(plant);
+        plant.show();
     }
 
     public void removePlant() {
+        for(Plant plant : plants) plant.hide();
         plants.clear();
     }
 

@@ -1,17 +1,22 @@
 package com.parkly.main;
 
+import com.parkly.graphics.DisplayObject;
+import com.parkly.graphics.Window;
+
 public class Plant extends Displayable {
     private PlantSpecies species;
     private String photo;
     private int x, y;
 
     public Plant(PlantSpecies species, String photo) {
+        super(new DisplayObject(species.getTexture(), 0, 0, (int) (Window.HEIGHT * 0.1), (int) (Window.HEIGHT * 0.1)));
+
         this.species = species;
         this.photo = photo;
 
         x = (int)(Math.random() * Window.WIDTH);
-        y = Window.HEIGHT - Window.HEIGHT * 0.15;
-        super(new DisplayObject(species.getTexture(), x, y, (int) (Window.HEIGHT * 0.1), (int) (Window.HEIGHT * 0.1)));
+        y = (int)(Window.HEIGHT - Window.HEIGHT * 0.15);
+        this.object.move(x, y);
     }
 
     public Plant(String species, String photo) {
@@ -28,5 +33,11 @@ public class Plant extends Displayable {
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public void update() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 }

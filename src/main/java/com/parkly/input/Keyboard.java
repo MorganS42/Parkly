@@ -31,7 +31,8 @@ public class Keyboard {
 
 				case 't':
 					Parkly.WEBCAM.run();
-					
+					break; 
+
 				case 'p':
 					Parkly.PHOTO_LIBRARY.show();
 					Parkly.ZOO.hide();
@@ -41,6 +42,7 @@ public class Keyboard {
 					Parkly.PHOTO_LIBRARY.hide();
 					Parkly.ZOO.show();
 					break;
+					
 				case 'f':
 					Parkly.ZOO.addPlant();
 					break;

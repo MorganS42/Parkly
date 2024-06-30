@@ -53,8 +53,6 @@ public class Parkly {
         PHOTO_LIBRARY.addPhoto("image3.png", "Cockatoo");
 
         GAME_ENGINE.schedule(new GameEngine(), 0, GameEngine.PERIOD);
-
-        detectLabels(vision, "res/selfie.jpg");
     }
 
     static class GameEngine extends TimerTask {

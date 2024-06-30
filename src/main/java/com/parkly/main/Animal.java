@@ -25,6 +25,7 @@ public class Animal extends Displayable {
     private double ydistance;
     private int xdirection;
     private int ydirection;
+    private int targetX;
     private double idleTime;
 
     public Animal(String name, AnimalSpecies species, String photo) {
@@ -68,7 +69,7 @@ public class Animal extends Displayable {
                 }
                 break;
             case MOVE:
-                if (Parkly.ZOO.getPlantSize() == 0 || canFly()) {
+                if (Parkly.ZOO.getPlantSize() == 0 || this.species.canFly()) {
                     if (xdistance > 0 || ydistance > 0) {
                         if (xdistance > 0) {
                             x += xdirection * X_MOVE_INCREMENT;
@@ -86,14 +87,16 @@ public class Animal extends Displayable {
                 }
                 else {
                     targetX = Parkly.ZOO.getTargetX();
+                    if(Math.abs(x - targetX) < X_MOVE_INCREMENT) {
+                        Parkly.ZOO.removePlant();
+                        this.hunger -= 5;
+                        if(this.hunger < 0) this.hunger = 0;
+                    }
                     if (targetX > x) {
                         x += X_MOVE_INCREMENT;
                     }
                     else if (targetX < x) {
                         x -= X_MOVE_INCREMENT;
-                    }
-                    else {
-                        Parkly.ZOO.removePlant();
                     }
                 }
                 break;
