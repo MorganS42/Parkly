@@ -62,6 +62,14 @@ public class Zoo implements Updatable {
         enclosures.get(current).hide();
     }
 
+    public void showProfile() {
+        enclosures.get(current).showProfile();
+    }
+
+    public void hideProfile() {
+        enclosures.get(current).hideProfile();
+    }
+
     public void moveLeft() {
         if(current >= enclosures.size() - 1) return;
 

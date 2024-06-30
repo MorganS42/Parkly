@@ -40,6 +40,14 @@ public class Keyboard {
 				case 'f':
 					Parkly.ZOO.addPlant();
 					break;
+
+				case: 'z':
+					Parkly.ZOO.showProfile();
+					break;
+
+				case: 'x':
+					Parkly.ZOO.hideProfile();
+					break;
 			}
 		}
 	}

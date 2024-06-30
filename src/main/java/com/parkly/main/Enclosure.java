@@ -40,6 +40,14 @@ public class Enclosure extends Displayable {
         return plants.get(0).getX();
     }
 
+    public void showProfile() {
+        animals.get(0).showProfile;
+    }
+
+    public void hideProfile() {
+        animals.get(0).hideProfile;
+    }
+
     @Override
     public void update() {
         for(Animal animal : animals) animal.update();

@@ -114,9 +114,10 @@ public class Animal extends Displayable {
     //Shows some info like photos you have taken, hunger, plants it can eat, etc
     public void showProfile() {
         profile.show();
+    }
 
-        //TODO add statistics, plants, etc as text boxes basically
-        
+    public void hideProfile() {
+        profile.hide();
     }
 
     public void feed(Plant plant) {
