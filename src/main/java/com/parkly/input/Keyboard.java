@@ -36,6 +36,7 @@ public class Keyboard {
 					Parkly.PHOTO_LIBRARY.hide();
 					Parkly.ZOO.show();
 					break;
+					
 				case 'f':
 					Parkly.ZOO.addPlant();
 					break;
